@@ -19,11 +19,10 @@ if __name__ == "__main__":
     file_path = sys.argv[1]
     words = get_words_from(file_path)
 
-    words_occurrences = [(word, words.count(word)) for word in set(words)]
-    new_sort = sorted(
-        words_occurrences, key=itemgetter(0, 1), reverse=True)
+    words_occurrences = sorted(
+        [(word, words.count(word)) for word in set(words)],
+        key=itemgetter(0))
 
-    # sorted(
-    #     new_sort, key=itemgetter(0), reverse=True)
-    for item in new_sort:
-        print(str(item[KEY]), ":", str(item[VALUE]))
+    for item in sorted(
+            words_occurrences, key=itemgetter(1), reverse=True):
+        print("{}: {}".format(item[KEY], item[VALUE]))
