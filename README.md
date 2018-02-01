@@ -6,4 +6,4 @@ The output format:
 
 # RUN
 put this command in your terminal
-`python3 words_frequency <filepath>`
+`python3 words_frequency.py <filepath>`
