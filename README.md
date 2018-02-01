@@ -5,5 +5,5 @@ The output format:
 `<word>: <occurrences>`
 
 # RUN
-put this command in your terminal
+put this command in your terminal on Mac or Linux
 `python3 words_frequency.py <filepath>`
