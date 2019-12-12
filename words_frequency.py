@@ -1,7 +1,7 @@
 import sys
 import re
 from operator import itemgetter
-from collections import defaultdict
+from collections import Counter
 
 KEY = 0
 VALUE = 1
@@ -18,10 +18,8 @@ def get_words_from(path):
 if __name__ == "__main__":
     file_path = sys.argv[1]
     words = get_words_from(file_path)
-    words_frequency = defaultdict(int)
 
-    for word in words:
-        words_frequency[word] += 1
+    words_frequency = Counter(words)
 
     words_frequency_sorted = sorted(words_frequency.items(), key=itemgetter(0))
 
