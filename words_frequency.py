@@ -1,6 +1,7 @@
 import sys
 import re
 from operator import itemgetter
+from collections import defaultdict
 
 KEY = 0
 VALUE = 1
@@ -9,7 +10,7 @@ VALUE = 1
 def get_words_from(path):
     words = []
     try:
-        with open(path) as file:
+        with open(path, 'r') as file:
             for line in file:
                 words += re.sub("[^\w]", " ", line).split()
             return words
@@ -25,12 +26,9 @@ def get_words_from_input():
 
 
 def get_words_frecuency(words):
-    words_frequency = {}
+    words_frequency = defaultdict(int)
     for word in words:
-        if str(word) in words_frequency:
-            words_frequency[str(word)] += 1
-        else:
-            words_frequency[str(word)] = 1
+        words_frequency[str(word)] += 1
 
     words_frequency_sorted = sorted(words_frequency.items(), key=itemgetter(0))
 
